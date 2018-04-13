@@ -24,11 +24,11 @@
   = page_entries_info @seeds
   = will_paginate @seeds
 
-.row
+.seeds-row
   - unless @seeds.empty?
     - @seeds.each do |seed|
-      .col-md-6
-        = render partial: 'seeds/thumbnail', locals: { seed: seed }
+      .seedcard
+        = render 'seeds/card', seed: seed
 
 .pagination
   = page_entries_info @seeds

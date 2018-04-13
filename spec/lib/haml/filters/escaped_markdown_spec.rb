@@ -5,7 +5,7 @@ require 'haml/helpers'
 
 describe 'Haml::Filters::Escaped_Markdown' do
   it 'is registered as the handler for :escaped_markdown' do
-    Haml::Filters::defined['escaped_markdown'].should ==
+    Haml::Filters.defined['escaped_markdown'].should ==
       Haml::Filters::EscapedMarkdown
   end
 
@@ -15,7 +15,7 @@ describe 'Haml::Filters::Escaped_Markdown' do
   end
 
   it 'converts quick crop links' do
-    @crop = FactoryGirl.create(:crop)
+    @crop = FactoryBot.create(:crop)
     rendered = Haml::Filters::EscapedMarkdown.render("[#{@crop.name}](crop)")
     rendered.should match(/&lt;a href=&quot;/)
   end
